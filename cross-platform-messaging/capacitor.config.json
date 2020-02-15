@@ -3,6 +3,6 @@
   "appName": "Cross Platform Messaging",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www",
+  "webDir": "src",
   "cordova": {}
 }
