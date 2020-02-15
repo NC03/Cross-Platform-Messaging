@@ -1,5 +1,8 @@
 {
   "name": "Cross Platform Messaging",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

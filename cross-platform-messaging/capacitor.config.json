@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.crossplatformmessaging",
+  "appName": "Cross Platform Messaging",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
