@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-grid>
+    <ion-grid background-color="light" >
 			<ion-row>
-				<ion-item> <ion-button (click)=loadHome($event)>Back</ion-button> </ion-item>
-				<ion-item><ion-title>*USERNAME*</ion-title></ion-item>
+        <ion-col size="2"> <ion-button style="height:40px" (click)=loadHome($event)>Back</ion-button></ion-col>
+        <ion-col size="10">	<ion-title>*USERNAME*</ion-title></ion-col>
 			</ion-row>
 		</ion-grid>
   </ion-toolbar>
@@ -11,13 +11,13 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">  
   <!--CSS-->
   <style>
-    header{
-      font-family: 'Roboto', sans-serif;
-      color:"light";
-    }
-    main {
+    ion-header,ion-content{
       font-family: 'Roboto', sans-serif;
     }
+    ion-header{
+      background-color: "light";
+    }
+    
   </style>
 </ion-header>
 <!--BODY-->
@@ -38,7 +38,7 @@
     
 </ion-content>
 
-<ion-footer style="margin:0; padding:0;">
+<ion-footer style="margin:0; padding:10px;">
     <!--New Message-->
     <ion-grid style="margin:0; padding:0;">
       <ion-row>
