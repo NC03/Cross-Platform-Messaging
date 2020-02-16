@@ -35,7 +35,7 @@ export class MessagesPage implements OnInit {
     }
     openConversation(num) {
         alert(num);
-        this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password") })).subscribe((data) =>{
+        this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password"),"id":num })).subscribe((data) =>{
             if(data["success"] == true)
             {
                 this.storage.set("conversations",data["data"]);
