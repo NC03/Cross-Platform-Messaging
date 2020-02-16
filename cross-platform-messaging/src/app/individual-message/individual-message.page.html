@@ -3,11 +3,15 @@
     <ion-title>*REVIEVER USERNAME*</ion-title>
   </ion-toolbar>
   <!--FONTS-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">  
   <!--CSS-->
   <style>
     main {
       font-family: 'Roboto', sans-serif;
+    }
+    ion-content{
+      height:400px;
+      overflow:scroll;
     }
   </style>
 </ion-header>
@@ -33,14 +37,17 @@
     <!--New Message-->
     <ion-grid>
       <ion-row>
-        <ion-col size="10">
+        
+        <ion-col no-padding size="10">
           <ion-textarea color="dark" placeholder="Message" [(ngModel)]="textMessage"></ion-textarea>
         </ion-col>
-        <ion-col size="2">
+        <ion-col no-padding size="2">
           <ion-fab-button style="width:26px;height:26px;" size="small" color="primary" (click)=plusBtn($event)>
             <ion-icon name="caret-up-circle-outline"></ion-icon>
           </ion-fab-button>
         </ion-col>
+
+
       </ion-row>
     </ion-grid>
 </ion-footer>
