@@ -25,6 +25,8 @@ export class MessagesPage implements OnInit {
   }
   fetchConversations()
   {
+      var uname = this.storage.get("username");
+      var passwd = this.storage.get("password");
       let objects = [
           {title: "Drop Collaboration Team", desc:"", url: "url"},
           {title: "Akash and John", desc:"", url: "url"},
