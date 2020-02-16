@@ -20,20 +20,21 @@ export class HomePage {
         this.storage.set("test", "abcd");
     }
     pingServer() {
-        this.storage.set("username",this.username);
-        this.storage.set("password",this.password);
+        if (this.username != '' && this.password != '') {
+            this.storage.set("username",this.username);
+            this.storage.set("password",this.password);
 
-        this.http.get(this.genURL({ "target": "conversation", "action": "request", "username": this.username, "password": this.password })).subscribe((data) =>{
-            if(data["success"] == true)
-            {
-                this.storage.set("conversations",data["data"]);
-                this.router.navigate(['/messages']);
-            }else{
-                alert(data["errorMessage"]);
-            }
-        });
+            this.http.get(this.genURL({ "target": "conversation", "action": "request", "username": this.username, "password": this.password })).subscribe((data) =>{
+                if(data["success"] == true)
+                {
+                    this.storage.set("conversations",data["data"]);
+                    this.router.navigate(['/messages']);
+                }else{
+                    alert(data["errorMessage"]);
+                }
+            });
         
-
+        }
     }
     openSignupPage() {
         this.storage.set("username", this.username);
