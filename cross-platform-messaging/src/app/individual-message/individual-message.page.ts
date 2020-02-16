@@ -46,6 +46,8 @@ export class IndividualMessagePage implements OnInit {
                 this.refreshMessages();
             }
         });
+      }else{
+        this.refreshMessages();
       }
     }
     goBack(inputVar) {
