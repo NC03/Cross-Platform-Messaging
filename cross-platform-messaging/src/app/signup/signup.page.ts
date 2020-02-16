@@ -33,7 +33,6 @@ export class SignupPage implements OnInit {
             if(data["success"] == true)
             {
                 this.router.navigate(['/home']);
-                this.router.navigate(['/messages']);
             }else{
                 alert(data["errorMessage"]);
             }

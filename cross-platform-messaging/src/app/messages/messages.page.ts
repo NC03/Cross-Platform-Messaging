@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { Inject, Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-messages',
@@ -11,7 +14,7 @@ export class MessagesPage implements OnInit {
     public objs;
 
 
-    constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
+    constructor(private router: Router,@Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
 
     ngOnInit() {
         this.objs = this.storage.get("conversations")
@@ -32,6 +35,23 @@ export class MessagesPage implements OnInit {
     }
     openConversation(num) {
         alert(num);
+        this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password") })).subscribe((data) =>{
+            if(data["success"] == true)
+            {
+                this.storage.set("conversations",data["data"]);
+                this.router.navigate(['/messages']);
+            }else{
+                alert(data["errorMessage"]);
+            }
+        });
+    }
+    genURL(dict) {
+        var str = "http://" + this.storage.get("ip") + ":" + this.storage.get("port") + "/?";
+        for (var key in dict) {
+            str += key + "=" + encodeURIComponent(dict[key]) + "&";
+        }
+        str = str.substring(0, str.length - 1);
+        return str;
     }
 
 }
