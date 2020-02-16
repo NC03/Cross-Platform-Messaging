@@ -38,7 +38,7 @@
     <ion-grid>
       <ion-row>
         <ion-col size="10">
-          <ion-textarea placeholder="Message"></ion-textarea>
+          <ion-textarea placeholder="Message" [(ngModel)]="textMessage"></ion-textarea>
         </ion-col>
         <ion-col size="2">
           <ion-fab-button style="width:26px;height:26px;" size="small" color="dark" (click)=plusBtn($event)>
@@ -47,5 +47,4 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
 </ion-footer>

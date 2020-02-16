@@ -7,8 +7,8 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['./individual-message.page.scss'],
 })
 export class IndividualMessagePage implements OnInit {
+    public textMessage: String;
 
-    
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +17,11 @@ export class IndividualMessagePage implements OnInit {
   loadData(ev)
   {
       console.log(ev);
+  }
+
+  plusBtn(ev)
+  {
+      alert(this.textMessage);
   }
 
 }
