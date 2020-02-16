@@ -1,9 +1,58 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Group Message</ion-title>
+    <ion-grid background-color="light" >
+			<ion-row>
+        <ion-col size="2"> <ion-button style="height:40px" (click)=loadHome($event)>Back</ion-button></ion-col>
+        <ion-col size="10">	<ion-title class="ion-text-center; ion-align-self-baseline" >*USERNAME*</ion-title></ion-col>
+			</ion-row>
+		</ion-grid>
   </ion-toolbar>
+  <!--FONTS-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">  
+  <!--CSS-->
+  <style>
+    ion-header,ion-content{
+      font-family: 'Roboto', sans-serif;
+    }
+    ion-header{
+      background-color: "light";
+    }
+    
+  </style>
 </ion-header>
-
+<!--BODY-->
 <ion-content>
-
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="crescent"
+          loadingText="Loading more data..."
+          position="top">
+        </ion-infinite-scroll-content>
+        <!-- https://ionicframework.com/docs/api/infinite-scroll/ -->
+        <ul>
+            <li *ngFor="let item of [].constructor(1000);let i = index">
+                a{{i}}
+            </li>
+        </ul>
+      </ion-infinite-scroll>
+    
 </ion-content>
+
+<ion-footer style="margin:0; padding:10px;">
+    <!--New Message-->
+    <ion-grid style="margin:0; padding:0;">
+      <ion-row>
+        
+        <ion-col style="margin:0; padding:0;" size="10">
+          <ion-textarea rows=1 color="dark" placeholder="Message" [(ngModel)]="textMessage"></ion-textarea>
+        </ion-col>
+        <ion-col style="margin:0; padding:0;" size="2">
+          <ion-fab-button style="width:26px;height:26px;text-align:center" size="small" color="primary" (click)=plusBtn($event)>
+            <ion-icon name="caret-up-circle-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+
+
+      </ion-row>
+    </ion-grid>
+</ion-footer>
