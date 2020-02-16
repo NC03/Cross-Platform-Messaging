@@ -14,4 +14,8 @@ export class HomePage {
         this.router.navigate(['/signup']);
         // alert(inputVar);
     }
+    validate(inputVar)
+    {
+        alert(inputVar);
+    }
 }
