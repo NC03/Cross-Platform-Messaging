@@ -14,13 +14,10 @@ export class MessagesPage implements OnInit {
   constructor( @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
 
   ngOnInit() {
-      this.objs = this.fetchConversations()
-      this.storage.set("test",0);
+      this.objs = this.storage.get("conversations")
   }
   plusBtn(ev)
   {
-      this.storage.set("test",this.storage.get("test")+1);
-    alert(this.storage.get("test"));
     alert(ev);
   }
   fetchConversations()

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-individual-message',
@@ -9,7 +10,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 export class IndividualMessagePage implements OnInit {
     public textMessage: String;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
