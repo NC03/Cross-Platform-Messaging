@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import {Inject, Injectable} from "@angular/core";
 
 @Component({
   selector: 'app-messages',
@@ -9,13 +11,16 @@ export class MessagesPage implements OnInit {
     public objs;
 
 
-  constructor() { }
+  constructor( @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
 
   ngOnInit() {
       this.objs = this.fetchConversations()
+      this.storage.set("test",0);
   }
   plusBtn(ev)
   {
+      this.storage.set("test",this.storage.get("test")+1);
+    alert(this.storage.get("test"));
     alert(ev);
   }
   fetchConversations()

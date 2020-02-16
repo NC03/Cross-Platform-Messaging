@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import {RouterModule, Routes } from "@angular/router";
+import {StorageServiceModule} from "angular-webstorage-service";
 
 // const routing: Routes = [
 //     {path: "", redirectTo: "/home"},
@@ -21,7 +22,8 @@ import {RouterModule, Routes } from "@angular/router";
   entryComponents: [],
   imports: [
     //   RouterModule.forRoot(routing, {enableTracing:true})
-    BrowserModule, IonicModule.forRoot(), AppRoutingModule
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    StorageServiceModule
   ],
   providers: [
     StatusBar,
