@@ -25,7 +25,7 @@
 			<p>{{obj.title}}</p>
             <br /><font size="1">{{obj.desc}}</font>
                 <ion-icon name="arrow-forward-outline"></ion-icon>
-
+            <ion-button (click)="openConversation(obj.id)">{{obj.id}}</ion-button>
 		</ion-item>
 	</ion-list>
 
