@@ -26,7 +26,7 @@ export class GroupMessagePage implements OnInit {
   {
       alert(this.textMessage);
   }
-  loadHome(inputVar) {
+  goBack(inputVar) {
     this.router.navigate(['/messages']);
   }
   

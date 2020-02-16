@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { Inject, Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-individual-message',
@@ -33,6 +33,9 @@ export class IndividualMessagePage implements OnInit {
 
     plusBtn(ev) {
         alert(this.textMessage);
+    }
+    goBack(inputVar) {
+      this.router.navigate(['/messages']);
     }
 
 }
