@@ -15,9 +15,9 @@
 
   <div id="container">
       <ion-label position="stacked">Username</ion-label>
-      <ion-input placeholder="Enter your username" [(ngModel)]="username"></ion-input>
+      <ion-input placeholder="Enter your username" [(ngModel)]="username" type="text"></ion-input>
       <ion-label position="stacked">Password</ion-label>
-      <ion-input placeholder="Enter your password" [(ngModel)]="password"></ion-input>
+      <ion-input placeholder="Enter your password" [(ngModel)]="password" type="password"></ion-input>
     <div>
       <ion-button type="submit" (click)=pingServer()>Sign In</ion-button>
     </div>
