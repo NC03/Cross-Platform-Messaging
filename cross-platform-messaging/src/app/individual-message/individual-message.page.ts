@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-individual-message',
@@ -9,10 +11,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class IndividualMessagePage implements OnInit {
     public textMessage: String;
+    mgs;
 
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router,@Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
 
   ngOnInit() {
+      this.mgs = this.storage.get("messages");
   }
 
   loadData(ev)

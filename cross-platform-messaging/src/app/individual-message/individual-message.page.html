@@ -41,8 +41,8 @@
         </ion-infinite-scroll-content>
         <!-- https://ionicframework.com/docs/api/infinite-scroll/ -->
         <ul>
-            <li *ngFor="let item of [].constructor(1000);let i = index">
-                a{{i}}
+            <li *ngFor="let item of mgs">
+                {{item | json}}
             </li>
         </ul>
       </ion-infinite-scroll>
