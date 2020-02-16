@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Cross Platform Messaging</string>
+    <string name="title_activity_main">Cross Platform Messaging</string>
+    <string name="package_name">io.ionic.crossplatformmessaging</string>
+    <string name="custom_url_scheme">io.ionic.crossplatformmessaging</string>
+</resources>

@@ -13,11 +13,13 @@ export class HomePage {
     this.username = '';
     this.password = '';
   }
-    pingServer(inputVar) {
-        this.router.navigate(['/signup']);
-        // alert(inputVar);
-    }
-    validate() {
-      alert(this.username + " " + this.password);
-    }
+  pingServer2() {
+      this.router.navigate(['/messages']);
+  }
+  pingServer() {
+    this.router.navigate(['/signup']);
+  }
+  validate() {
+    alert(this.username + " " + this.password);
+  }
 }
