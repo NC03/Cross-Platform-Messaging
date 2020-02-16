@@ -1,8 +1,19 @@
 {
-  "appId": "io.ionic.crossplatformmessaging",
-  "appName": "Cross Platform Messaging",
+  "appId": "com.example.drop",
+  "appName": "Drop",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "src",
-  "cordova": {}
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000"
+    }
+  }
 }
