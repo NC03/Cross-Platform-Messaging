@@ -21,7 +21,7 @@ export class HomePage {
     }
     pingServer() {
         this.http.get(this.genURL({ "target": "conversation", "action": "request", "username": this.username, "password": this.password })).subscribe((data) =>{
-            this.storage.set("conversations",data.data);
+            this.storage.set("conversations",data["data"]);
             this.router.navigate(['/messages']);
         });
         
