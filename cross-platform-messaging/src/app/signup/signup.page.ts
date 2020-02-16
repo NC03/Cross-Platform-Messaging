@@ -29,14 +29,16 @@ export class SignupPage implements OnInit {
         this.router.navigate(['/home']);
     }
     pingServer(inputVar) {
-        this.http.get(this.genURL({ "target": "user", "action": "create", "username": this.username, "password": this.password })).subscribe((data) =>{
-            if(data["success"] == true)
-            {
-                this.router.navigate(['/home']);
-            }else{
-                alert(data["errorMessage"]);
-            }
-        });
+        if (this.username != '' && this.password != '' && this.email != '') {
+            this.http.get(this.genURL({ "target": "user", "action": "create", "username": this.username, "password": this.password })).subscribe((data) =>{
+                if(data["success"] == true)
+                {
+                    this.router.navigate(['/home']);
+                }else{
+                    alert(data["errorMessage"]);
+                }
+            });
+        }
     }
     validate() {
         alert("Username: " + this.username + " \nPassword: " + this.password + " \nRecovery Email: " + this.email);

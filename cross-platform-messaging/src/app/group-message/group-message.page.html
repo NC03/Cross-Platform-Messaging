@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-grid background-color="light" >
-			<ion-row>
-        <ion-col size="2"> <ion-button style="height:40px" (click)=loadHome($event)>Back</ion-button></ion-col>
-        <ion-col size="10">	<ion-title class="ion-text-center; ion-align-self-baseline" >*USERNAME*</ion-title></ion-col>
+    <ion-grid >
+			<ion-row style = "padding:0px">
+        <ion-col> <ion-button style="height:25px" (click)=loadHome($event)>Back</ion-button></ion-col>
+        <ion-col class = 'my-thin-col'>	<ion-img class =";ion-padding-end" src="https://i.stack.imgur.com/34AD2.jpg"></ion-img> </ion-col>
+        <ion-col>	<ion-title class="" style="font-size: x-large;">Nick</ion-title></ion-col>
 			</ion-row>
 		</ion-grid>
   </ion-toolbar>
@@ -14,8 +15,18 @@
     ion-header,ion-content{
       font-family: 'Roboto', sans-serif;
     }
-    ion-header{
-      background-color: "light";
+    ion-toolbar, ion-row{
+      --color:"primary";
+      --background: "medium";
+    }
+    ion-img {
+      height: 35px;
+      width: 35px;
+    }
+    ion-col.my-thin-col {
+      flex: 10px 0px 0px;
+      padding:0;
+      margin-right:10px;
     }
     
   </style>
@@ -38,15 +49,15 @@
     
 </ion-content>
 
-<ion-footer style="margin:0; padding:10px;">
+<ion-footer style="margin:0; padding:0px; padding-left: 20px;">
     <!--New Message-->
     <ion-grid style="margin:0; padding:0;">
       <ion-row>
         
-        <ion-col style="margin:0; padding:0;" size="10">
+        <ion-col style="margin:0; padding:0;">
           <ion-textarea rows=1 color="dark" placeholder="Message" [(ngModel)]="textMessage"></ion-textarea>
         </ion-col>
-        <ion-col style="margin:0; padding:0;" size="2">
+        <ion-col style="margin:0; padding:0;" size="100px">
           <ion-fab-button style="width:26px;height:26px;text-align:center" size="small" color="primary" (click)=plusBtn($event)>
             <ion-icon name="caret-up-circle-outline"></ion-icon>
           </ion-fab-button>

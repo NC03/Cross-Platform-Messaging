@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./individual-message.page.scss'],
 })
 export class IndividualMessagePage implements OnInit {
-    public textMessage: String;
+    public textMessage: string;
 
   constructor(private http: HttpClient) { }
 
