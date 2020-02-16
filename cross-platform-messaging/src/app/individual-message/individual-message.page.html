@@ -1,11 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>*REVIEVER USERNAME*</ion-title>
+    <ion-grid>
+			<ion-row>
+				<ion-item> <ion-button (click)=loadHome($event)>Back</ion-button> </ion-item>
+				<ion-item><ion-title>*USERNAME*</ion-title></ion-item>
+			</ion-row>
+		</ion-grid>
   </ion-toolbar>
   <!--FONTS-->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">  
   <!--CSS-->
   <style>
+    header{
+      font-family: 'Roboto', sans-serif;
+      color:"light";
+    }
     main {
       font-family: 'Roboto', sans-serif;
     }
@@ -29,16 +38,16 @@
     
 </ion-content>
 
-<ion-footer>
+<ion-footer style="margin:0; padding:0;">
     <!--New Message-->
-    <ion-grid>
+    <ion-grid style="margin:0; padding:0;">
       <ion-row>
         
-        <ion-col no-padding size="10">
-          <ion-textarea color="dark" placeholder="Message" [(ngModel)]="textMessage"></ion-textarea>
+        <ion-col style="margin:0; padding:0;" size="10">
+          <ion-textarea rows=1 color="dark" placeholder="Message" [(ngModel)]="textMessage"></ion-textarea>
         </ion-col>
-        <ion-col no-padding size="2">
-          <ion-fab-button style="width:26px;height:26px;" size="small" color="primary" (click)=plusBtn($event)>
+        <ion-col style="margin:0; padding:0;" size="2">
+          <ion-fab-button style="width:26px;height:26px;text-align:center" size="small" color="primary" (click)=plusBtn($event)>
             <ion-icon name="caret-up-circle-outline"></ion-icon>
           </ion-fab-button>
         </ion-col>
