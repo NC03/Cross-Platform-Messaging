@@ -20,6 +20,9 @@ export class HomePage {
         this.storage.set("test", "abcd");
     }
     pingServer() {
+        this.storage.set("username",this.username);
+        this.storage.set("password",this.password);
+
         this.http.get(this.genURL({ "target": "conversation", "action": "request", "username": this.username, "password": this.password })).subscribe((data) =>{
             if(data["success"] == true)
             {
