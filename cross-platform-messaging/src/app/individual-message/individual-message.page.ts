@@ -29,7 +29,6 @@ export class IndividualMessagePage implements OnInit {
 
     loadData(ev) {
         console.log(ev);
-        // alert(ev);
     }
 
     sendBtn(ev) {

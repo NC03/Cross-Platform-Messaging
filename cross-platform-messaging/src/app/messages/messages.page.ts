@@ -17,11 +17,32 @@ export class MessagesPage implements OnInit {
     constructor(private router: Router, @Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient/*, private alertCtrl: AlertController*/) { }
 
     ngOnInit() {
-
-        this.objs = this.storage.get("conversations")
+        this.refresh();
     }
     plusBtn(ev) {
-        //this.presentPrompt();
+        var users = prompt("Enter Users");
+        var title = prompt("Enter Title");
+        if (users != null && title != null) {
+            var arrVal = users.split(",");
+            var titleVal = title;
+            this.http.get(this.genURL({ "target": "conversation", "action": "create", "username": this.storage.get("username"), "password": this.storage.get("password"), "data": JSON.stringify({ "authUsers": arrVal, "title": titleVal }) })).subscribe((data) => {
+                if (data["success"] == true) {
+                    this.refresh();
+                } else {
+                    alert(data["errorMessage"]);
+                }
+            });
+        }
+    }
+    refresh() {
+        this.http.get(this.genURL({ "target": "conversation", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password") })).subscribe((data) => {
+            if (data["success"] == true) {
+                this.storage.set("conversations", data["data"]);
+                this.objs = data["data"]
+            } else {
+                alert(data["errorMessage"]);
+            }
+        });
     }
     /*presentPrompt() {
         let alert = this.alertCtrl.create({
@@ -67,7 +88,7 @@ export class MessagesPage implements OnInit {
         return objects;
     }
     openConversation(num) {
-        this.storage.set("conversationId",num);
+        this.storage.set("conversationId", num);
         this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password"), "id": num })).subscribe((data) => {
             if (data["success"] == true) {
                 this.storage.set("messages", data["data"]);
