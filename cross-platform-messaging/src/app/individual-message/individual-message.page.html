@@ -45,11 +45,9 @@
           position="top">
         </ion-infinite-scroll-content>
         <!-- https://ionicframework.com/docs/api/infinite-scroll/ -->
-        <ul>
-            <li *ngFor="let item of mgs">
+            <div *ngFor="let item of mgs">
                 {{item.sender}}: {{item.content}}
-            </li>
-        </ul>
+            </div>
       </ion-infinite-scroll>
     
 </ion-content>
