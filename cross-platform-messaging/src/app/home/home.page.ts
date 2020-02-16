@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +7,16 @@ import {Router} from "@angular/router";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor(private router: Router) {}
-    pingServer(inputVar)
-    {
+  username: string;
+  constructor(private router: Router) {
+    this.username = '';
+  }
+    pingServer(inputVar) {
         this.router.navigate(['/signup']);
         // alert(inputVar);
     }
-    validate(inputVar)
-    {
-        alert(inputVar);
+    validate() {
+      console.log(this.username);
+        alert(this.username);
     }
 }
