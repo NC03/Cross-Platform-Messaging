@@ -14,9 +14,10 @@ export class MessagesPage implements OnInit {
     public objs;
 
 
-    constructor(private router: Router,@Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
+    constructor(private router: Router, @Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
 
     ngOnInit() {
+
         this.objs = this.storage.get("conversations")
     }
     plusBtn(ev) {
@@ -30,16 +31,16 @@ export class MessagesPage implements OnInit {
             { title: "Akash and John", desc: "", url: "url" },
             { title: "John Doe", desc: "", url: "url" },
             { title: "Jane Doe", desc: "", url: "url" }
-        ]
+        ];
         return objects;
     }
     openConversation(num) {
-        this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password"),"id":num })).subscribe((data) =>{
-            if(data["success"] == true)
-            {
-                this.storage.set("messages",data["data"]);
+        this.storage.set("conversationId",num);
+        this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password"), "id": num })).subscribe((data) => {
+            if (data["success"] == true) {
+                this.storage.set("messages", data["data"]);
                 this.router.navigate(['/individual-message']);
-            }else{
+            } else {
                 alert(data["errorMessage"]);
             }
         });
@@ -52,5 +53,4 @@ export class MessagesPage implements OnInit {
         str = str.substring(0, str.length - 1);
         return str;
     }
-
 }
