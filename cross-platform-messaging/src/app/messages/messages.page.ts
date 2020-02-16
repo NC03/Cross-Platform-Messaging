@@ -11,5 +11,9 @@ export class MessagesPage implements OnInit {
 
   ngOnInit() {
   }
+  plusBtn(ev)
+  {
+    alert(ev);
+  }
 
 }

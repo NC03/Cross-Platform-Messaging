@@ -131,14 +131,10 @@
     </ion-item>
   </ion-list>
 
-</ion-content>
-
-<div class="container" align="right"  style="margin-right:5%; margin-bottom:5%; background-color: transparent;">
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary" class="ion-color ion-color-secondary ios ion-activatable ion-focusable hydrated">
-      <ion-icon name="add" role="img" class="ios hydrated" aria-label="add"></ion-icon>
-    </ion-fab-button>     
+    <ion-fab-button color="primary" (click)=plusBtn($event)>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
   </ion-fab>
-  
-  
-</div>
+
+</ion-content>
