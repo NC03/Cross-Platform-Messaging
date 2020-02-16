@@ -28,7 +28,7 @@ export class SignupPage implements OnInit {
       this.router.navigate(['/home']);
   }
   pingServer(inputVar) {
-    this.router.navigate(['/messages']);
+    this.router.navigate(['/home']);
   }
   validate() {
     alert("Username: "+this.username + " \nPassword: " + this.password + " \nRecovery Email: "+this.email);
