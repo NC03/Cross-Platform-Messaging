@@ -8,13 +8,25 @@ import {Router} from "@angular/router";
 })
 export class SignupPage implements OnInit {
     
-    constructor(private router: Router) {}
+  username: string;
+  password: string;
+  email: string;
+  constructor(private router: Router) {
+    this.username = '';
+    this.password = '';
+    this.email = '';
+  }
 
   ngOnInit() {
   }
-  loadHome(inputVar)
-  {
+  loadHome(inputVar){
       this.router.navigate(['/home']);
+  }
+  pingServer(inputVar) {
+    this.router.navigate(['/messages']);
+  }
+  validate() {
+    alert("Username: "+this.username + " \nPassword: " + this.password + " \nRecovery Email: "+this.email);
   }
 
 }
