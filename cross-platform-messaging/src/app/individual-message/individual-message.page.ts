@@ -33,17 +33,20 @@ export class IndividualMessagePage implements OnInit {
     }
 
     sendBtn(ev) {
+      if (this.textMessage != '') {
         this.http.get(this.genURL({ "target": "message", "action": "create", "username": this.storage.get("username"), "password": this.storage.get("password"), "id":this.storage.get("conversationId"), "data":JSON.stringify({"authConversation": this.storage.get("conversationId"),"sender": this.storage.get("username"),"content":  this.textMessage})})).subscribe((data) =>{
             if(data["success"] == true)
             {
                 this.storage.set("conversations",data["data"]);
                 this.refreshMessages();
+                this.textMessage = '';
+                
             }else{
                 alert(data["errorMessage"]);
                 this.refreshMessages();
             }
         });
-
+      }
     }
     goBack(inputVar) {
       this.router.navigate(['/messages']);

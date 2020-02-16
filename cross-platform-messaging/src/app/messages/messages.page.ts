@@ -3,7 +3,7 @@ import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { Inject, Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+//import { AlertController } from '@ionic-angular';
 
 @Component({
     selector: 'app-messages',
@@ -14,15 +14,47 @@ export class MessagesPage implements OnInit {
     public objs;
 
 
-    constructor(private router: Router, @Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
+    constructor(private router: Router, @Inject(LOCAL_STORAGE) private storage: WebStorageService, private http: HttpClient/*, private alertCtrl: AlertController*/) { }
 
     ngOnInit() {
 
         this.objs = this.storage.get("conversations")
     }
     plusBtn(ev) {
-        alert(ev);
+        //this.presentPrompt();
     }
+    /*presentPrompt() {
+        let alert = this.alertCtrl.create({
+          title: 'Add Conversation',
+          inputs: [
+            {
+              name: 'username',
+              placeholder: 'Username'
+            }
+          ],
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: data => {
+                console.log('Cancel clicked');
+              }
+            },
+            {
+              text: 'Login',
+              handler: data => {
+             //   if (User.isValid(data.username, data.password)) {
+                  // logged in!
+             //   } else {
+                  // invalid login
+              //    return false;
+              //  }
+              }
+            }
+          ]
+        });
+        alert.present();
+      }*/
     fetchConversations() {
         var uname = this.storage.get("username");
         var passwd = this.storage.get("password");

@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {RouterModule, Routes } from "@angular/router";
 import {StorageServiceModule} from "angular-webstorage-service";
 import { HttpClientModule } from '@angular/common/http';
+//import { AlertController } from '@angular/compiler';
 
 // const routing: Routes = [
 //     {path: "", redirectTo: "/home"},
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     //   RouterModule.forRoot(routing, {enableTracing:true})
     BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     StorageServiceModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
