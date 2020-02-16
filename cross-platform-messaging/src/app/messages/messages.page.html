@@ -1,140 +1,34 @@
 <ion-header onload="myFunction()">
-  <div id="bullshit">
-    <ion-toolbar id = "bullshit" align="center">
-      <ion-title>Messages</ion-title>
-    </ion-toolbar>
-  </div>
-  <!--FONTS-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    /*Here*/
-    font-family: 'Roboto', sans-serif;
+	<div id="bullshit">
+		<ion-toolbar id="bullshit" align="center">
+			<ion-title>Messages</ion-title>
+		</ion-toolbar>
+	</div>
+	<!--FONTS-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+	<style>
+		/*Here*/
+		font-family: "Roboto", sans-serif;
 
-  div {
-    background-color: transparent;
-  }
-  </style>
+		div {
+			background-color: transparent;
+		}
+	</style>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
+	<ion-list>
+		<ion-item *ngFor="let obj of objs">
+			<p>{{obj.title}}</p>
+            <br /><font size="1">{{obj.desc}}</font>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
 
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
+		</ion-item>
+	</ion-list>
 
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-
-    <ion-item> 
-      <ion-label>Nick Cutsail
-        <br>
-        <font size = 1> Bruhhhhhh!<3 </font>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="primary" (click)=plusBtn($event)>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button color="primary" (click)="plusBtn($event)">
+			<ion-icon name="add"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
 </ion-content>
