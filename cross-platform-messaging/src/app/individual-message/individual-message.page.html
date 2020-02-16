@@ -47,7 +47,7 @@
         <!-- https://ionicframework.com/docs/api/infinite-scroll/ -->
         <ul>
             <li *ngFor="let item of mgs">
-                {{item | json}}
+                {{item.sender}}: {{item.content}}
             </li>
         </ul>
       </ion-infinite-scroll>

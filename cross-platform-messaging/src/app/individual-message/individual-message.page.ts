@@ -29,7 +29,7 @@ export class IndividualMessagePage implements OnInit {
 
     loadData(ev) {
         console.log(ev);
-        alert(ev);
+        // alert(ev);
     }
 
     sendBtn(ev) {
@@ -37,7 +37,6 @@ export class IndividualMessagePage implements OnInit {
             if(data["success"] == true)
             {
                 this.storage.set("conversations",data["data"]);
-                this.router.navigate(['/messages']);
                 this.refreshMessages();
             }else{
                 alert(data["errorMessage"]);
