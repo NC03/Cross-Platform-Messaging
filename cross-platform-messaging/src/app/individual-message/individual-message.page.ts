@@ -29,13 +29,43 @@ export class IndividualMessagePage implements OnInit {
 
     loadData(ev) {
         console.log(ev);
+        alert(ev);
     }
 
-    plusBtn(ev) {
-        alert(this.textMessage);
+    sendBtn(ev) {
+        this.http.get(this.genURL({ "target": "message", "action": "create", "username": this.storage.get("username"), "password": this.storage.get("passsword"), "id":this.storage.get("conversationId"), "data":JSON.stringify({"authConversation": this.storage.get("conversationId"),"sender": this.storage.get("username"),"content":  this.textMessage})})).subscribe((data) =>{
+            if(data["success"] == true)
+            {
+                this.storage.set("conversations",data["data"]);
+                this.router.navigate(['/messages']);
+                this.refreshMessages();
+            }else{
+                alert(data["errorMessage"]);
+                this.refreshMessages();
+            }
+        });
+
     }
     goBack(inputVar) {
       this.router.navigate(['/messages']);
     }
-
+    genURL(dict) {
+        var str = "http://" + this.storage.get("ip") + ":" + this.storage.get("port") + "/?";
+        for (var key in dict) {
+            str += key + "=" + encodeURIComponent(dict[key]) + "&";
+        }
+        str = str.substring(0, str.length - 1);
+        return str;
+    }
+    refreshMessages()
+    {
+        this.http.get(this.genURL({ "target": "message", "action": "request", "username": this.storage.get("username"), "password": this.storage.get("password"), "id": this.storage.get("conversationId") })).subscribe((data) => {
+            if (data["success"] == true) {
+                this.storage.set("messages", data["data"]);
+                this.mgs = this.storage.get("messages");
+            } else {
+                alert(data["errorMessage"]);
+            }
+        });
+    }
 }
