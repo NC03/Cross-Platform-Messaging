@@ -8,15 +8,16 @@ import {Router} from '@angular/router';
 })
 export class HomePage {
   username: string;
+  password: string;
   constructor(private router: Router) {
     this.username = '';
+    this.password = '';
   }
     pingServer(inputVar) {
         this.router.navigate(['/signup']);
         // alert(inputVar);
     }
     validate() {
-      console.log(this.username);
-        alert(this.username);
+      alert(this.username + " " + this.password);
     }
 }
