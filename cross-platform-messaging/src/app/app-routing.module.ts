@@ -11,6 +11,14 @@ const routes: Routes = [
     path: 'messages',
     loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
   },
+  {
+    path: 'individual-message',
+    loadChildren: () => import('./individual-message/individual-message.module').then( m => m.IndividualMessagePageModule)
+  },
+  {
+    path: 'group-message',
+    loadChildren: () => import('./group-message/group-message.module').then( m => m.GroupMessagePageModule)
+  },
 
 ];
 
